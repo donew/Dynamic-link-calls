@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Css Calls </title>
+    <link href="css/reset.css" type="text/css" rel="stylesheet" />
+    <!--<link href="css/layout.css" type="text/css" rel="stylesheet" />-->
+</head>
+<body>
+    <style type="text/css">
+        body
+        {
+            background-color: #fff;
+            background-repeat: repeat;
+            font-family: Arial;
+            -webkit-user-select: none; /* Chrome/Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */ /* Rules below not implemented in browsers yet */
+            -o-user-select: none;
+            user-select: none;
+            -webkit-transition: all 300ms ease-in;
+            -moz-transition: all 300ms ease-in;
+            -o-transition: all 300ms ease-in;
+            transition: all 300ms ease-in;
+            transform: rotatde(1deg);
+        }
+        .searchrepo
+        {
+            content: "";
+            width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        #searchpaddle
+        {
+            height: 40px;
+            line-height: 40px;
+            margin-top: 90px;
+        }
+        #searchpaddle:hover
+        {
+            border: 1px solid #aaa;
+        }
+        #searchpaddle input[type=search]
+        {
+            float: left;
+            width: 80%;
+            margin-left: 20px;
+            height: 36px;
+            border: 0;
+            color: #555;
+        }
+        #searchpaddle input[type=submit]
+        {
+            float: right;
+            height: 30px;
+            width: 35px;
+            margin-right: 7px;
+            margin-top: 5px;
+            border: 0;
+            background-color: Transparent;
+            background-image: url(search.png);
+            background-repeat: no-repeat;
+            background-size: 45%;
+            background-position: center;
+        }
+        #precode
+        {
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+    </style>
+    <div style="text-align:center;padding-top:40px;font-size:30px;">Try to search something!!!</div>
+    <div id="searchpaddle" class="searchrepo">
+        <form method="post" onsubmit="return submitAction()">
+        <input id="search" type="search" placeholder="Search" />
+        <input type="submit" value="" />
+        </form>
+    </div>
+    <div id="precode" class="searchrepo">
+        <pre>
+        function submitAction(out) {
+            if (document.getElementById('search').value != 'monstor') {
+                alert("Try to search monstor");
+                return false
+            }
+            else {
+                var bodyHead = document.getElementsByTagName('head')[0];
+                var cssLink = document.createElement('link');
+                cssLink.rel = 'stylesheet';
+                cssLink.type = 'text/css';
+                cssLink.href = 'css/layout.css';
+                bodyHead.appendChild(cssLink);
+                return false;
+            }
+        }
+    </pre>
+    </div>
+
+    <script type="text/javascript">
+        function submitAction(out) {
+            if (document.getElementById('search').value != 'monstor') {
+                alert("Try to search monstor");
+                return false
+            }
+            else {
+                var bodyHead = document.getElementsByTagName('head')[0];
+                var cssLink = document.createElement('link');
+                cssLink.rel = 'stylesheet';
+                cssLink.type = 'text/css';
+                cssLink.href = 'css/layout.css';
+                bodyHead.appendChild(cssLink);
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>
